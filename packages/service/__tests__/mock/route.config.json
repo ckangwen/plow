@@ -1,0 +1,29 @@
+{
+  "template-name": "vue-elemnt-admin",
+  "routes": [
+    {
+      "path": "/",
+      "name": "dashboard",
+      "title": "Dashboard",
+      "redirect": "/dashboard",
+      "icon": "el-icon-s-promotion",
+      "viewPath": "dashboard",
+      "children": [
+        {
+          "path": "dashboard",
+          "name": "dashboardIndex",
+          "title": "Dashboard",
+          "viewPath": "@/views/dashboard/index.vue",
+          "icon": "el-icon-s-promotion",
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "/demo",
+      "name": "aa",
+      "title": "Nice",
+      "viewPath": "@/views/demo/index.vue"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+@mixin bounds($distance) {
+  top: $distance;
+  bottom: $distance;
+  right: $distance;
+  left: $distance;
+}
+
+
+@mixin overlay() {
+  position: absolute;
+  @include bounds(0);
+}
+
+
+@mixin flex-box() {
+  display: flex;& > *  {
+    flex: auto 0 0;
+  }
+}
+
+
+
+@mixin h-box() {
+  @include flex-box();
+  flex-direction: row;
+}
+
+
+@mixin v-box() {
+  @include flex-box();
+  flex-direction: column;
+}
+
+
+@mixin flex-control() {
+  width: 0 !important;
+}
+
+
+@mixin box-center() {
+  align-items: center;
+  justify-content: center;
+}
+
+
+@mixin space-between-x($margin) {
+  margin-right: $margin;&:last-child  {
+    margin-right: 0;
+  }
+}
+
+
+
+@mixin space-between-y($margin) {
+  margin-bottom: $margin;&:last-child  {
+    margin-bottom: 0;
+  }
+}
+
+
+@mixin button-colors($foreground, $background) {
+  color: $foreground;
+  background: $background;&:not(.ghost) {
+    &:hover, 
+    .vue-ui-dropdown.open .dropdown-trigger & {
+      background: lighten($background, 25%);
+    }.vue-ui-dark-mode .vue-ui-dropdown.open .dropdown-trigger & {
+      background: $vue-ui-gray-600;
+      color: $vue-ui-white;> .content {
+        > .button-icon {
+          svg {
+            fill: $vue-ui-white;
+          }
+        }
+      }
+    }&:hover {
+      .vue-ui-dark-mode .popover & {
+        background: $vue-ui-gray-800 !important;
+      }
+    }&:active {
+      background: darken($background, 8%);
+    }
+  }> .content {
+    > .button-icon {
+      svg {
+        fill: $foreground;
+      }
+    }
+  }> .vue-ui-loading-indicator, 
+  > .content > .loading-secondary {
+    .animation {
+      border-right-color: $foreground;
+    }
+  }> .content > .tag-wrapper > .tag {
+    background: $foreground;
+    color: $background;
+    @if $background == transparent {
+      color: $vue-ui-white;.vue-ui-dark-mode & {
+        color: $vue-ui-gray-800 !important;
+      }
+    }.vue-ui-high-contrast & {
+      background: black !important;
+      color: white !important;
+    }
+  }&::before {
+    background: $background;
+  }&.vue-ui-dropdown-button {
+    background: transparent;&:not(:hover) {
+      color: $vue-ui-gray-800;.vue-ui-dark-mode & {
+        color: $vue-ui-white !important;
+      }> .content {
+        > .button-icon {
+          svg {
+            fill: $vue-ui-white !important;.vue-ui-dark-mode & {
+              fill: $vue-ui-white !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin button-transitions() {
+  transition: background 0.1s, color 0.1s;> .content {
+    > .button-icon {
+      svg {
+        transition: fill 0.1s;
+      }
+    }
+  }
+}
+
+
+
+@mixin vue-ui-text-colors($c) {
+  color: $c;.vue-ui-icon {
+    svg {
+      fill: $c !important;
+    }
+  }&.banner {
+    background: lighten($c, 90%);.vue-ui-dark-mode & {
+      background: darken($c, 60%);
+    }
+  }
+}

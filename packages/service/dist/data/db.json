@@ -1,0 +1,27 @@
+{
+  "packages": {
+    "@ckangwen/crud": {
+      "version": "1.0.3",
+      "description": "基于element-ui封装的表格组件",
+      "keywords": [
+        "element-ui",
+        "table",
+        "vue"
+      ],
+      "tarball": "https://registry.npmjs.org/@ckangwen/crud/-/crud-1.0.3.tgz"
+    }
+  },
+  "templates": {
+    "crud": [
+      {
+        "id": "o1CxMcxqQ",
+        "name": "BasicTableLayout",
+        "screenshot": "https://static01.imgkr.com/temp/5f260cae316f4f3bb787bcd9245eed39.png",
+        "url": "https://gitee.com/ckw1999/component-center/raw/master/template/crud.vue",
+        "dependencies": [
+          "@ckangwen/crud"
+        ]
+      }
+    ]
+  }
+}

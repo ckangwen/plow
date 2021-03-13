@@ -1,0 +1,29 @@
+import request from '@/utils/request'
+
+<% apis.forEach(item => { %>
+
+  <% if (item.method === 'GET') { %>
+    /**
+     <%- item.desc %>
+     */
+    export function <%- item.functionName %>(params) {
+      return request({
+        url: '<%- item.interface %>',
+        method: 'GET',
+        params
+      })
+    }
+  <% } else { %>
+    /**
+     * <%- item.desc %>
+     */
+    export function <%- item.functionName %>(data) {
+      return request({
+        url: '<%- item.interface %>',
+        method: 'POST',
+        data
+      })
+    }
+  <% } %>
+
+<% }) %>
